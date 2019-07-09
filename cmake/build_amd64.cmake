@@ -12,31 +12,10 @@ file(
 )
 
 set(
-    BUILD
-    3
-)
-
-include(
-    "${CMAKE_CURRENT_LIST_DIR}/Version.cmake"
-)
-
-set(
     ARCH
     amd64
-)
-
-
-set(
-    BUILD_PATH
-    "${CMAKE_CURRENT_LIST_DIR}/../build"
-)
-
-set(
-    PACKAGE_NAME
-    "gtest-${VERSION}-${ARCH}-${BUILD}$ENV{TAG}"
 )
 
 include(
     "${CMAKE_CURRENT_LIST_DIR}/build_common.cmake"
 )
-

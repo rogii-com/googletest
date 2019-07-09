@@ -289,26 +289,18 @@ set_target_properties(
   gtest
   PROPERTIES
     COMPILE_PDB_NAME
-    gtest${CMAKE_DEBUG_POSTFIX}
+      gtest${CMAKE_DEBUG_POSTFIX}
+
+    PREFIX
+      ""
 )
 
 set_target_properties(
   gtest_main
   PROPERTIES
     COMPILE_PDB_NAME
-    gtest_main${CMAKE_DEBUG_POSTFIX}
-)
+      gtest_main${CMAKE_DEBUG_POSTFIX}
 
-set_target_properties(
-  gtest
-  PROPERTIES
     PREFIX
-    ""
-)
-
-set_target_properties(
-  gtest_main
-  PROPERTIES
-    PREFIX
-    ""
+      ""
 )
