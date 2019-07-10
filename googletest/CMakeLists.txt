@@ -284,3 +284,23 @@ if (gtest_build_tests)
   cxx_executable(gtest_xml_output_unittest_ test gtest)
   py_test(gtest_xml_output_unittest)
 endif()
+
+set_target_properties(
+  gtest
+  PROPERTIES
+    COMPILE_PDB_NAME
+      gtest${CMAKE_DEBUG_POSTFIX}
+
+    PREFIX
+      ""
+)
+
+set_target_properties(
+  gtest_main
+  PROPERTIES
+    COMPILE_PDB_NAME
+      gtest_main${CMAKE_DEBUG_POSTFIX}
+
+    PREFIX
+      ""
+)
