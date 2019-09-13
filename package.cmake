@@ -55,7 +55,7 @@ if(NOT TARGET GTest::Main)
 
     if(MSVC)
         set_target_properties(
-            GTest::GTest
+            GTest::Main
             PROPERTIES
                 IMPORTED_LOCATION
                     "${CMAKE_CURRENT_LIST_DIR}/lib/gtest_main.lib"
@@ -66,7 +66,7 @@ if(NOT TARGET GTest::Main)
         )
     elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
         set_target_properties(
-            GTest::GTest
+            GTest::Main
             PROPERTIES
                 IMPORTED_LOCATION
                     "${CMAKE_CURRENT_LIST_DIR}/lib/gtest_main.a"
