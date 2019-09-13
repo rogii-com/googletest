@@ -23,7 +23,7 @@ if(NOT TARGET GTest::GTest)
                 IMPORTED_LOCATION_DEBUG
                     "${CMAKE_CURRENT_LIST_DIR}/lib/gtestd.lib"
                 INTERFACE_INCLUDE_DIRECTORIES
-                    "${CMAKE_CURRENT_LIST_DIR}/include/gtest"
+                    "${CMAKE_CURRENT_LIST_DIR}/include"
         )
     elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
         set_target_properties(
@@ -62,7 +62,7 @@ if(NOT TARGET GTest::Main)
                 IMPORTED_LOCATION_DEBUG
                     "${CMAKE_CURRENT_LIST_DIR}/lib/gtest_maind.lib"
                 INTERFACE_INCLUDE_DIRECTORIES
-                    "${CMAKE_CURRENT_LIST_DIR}/include/gtest"
+                    "${CMAKE_CURRENT_LIST_DIR}/include"
         )
     elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
         set_target_properties(
