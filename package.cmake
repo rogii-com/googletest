@@ -60,7 +60,7 @@ if(NOT TARGET GTest::Main)
                 IMPORTED_LOCATION
                     "${CMAKE_CURRENT_LIST_DIR}/lib/gtest_main.lib"
                 IMPORTED_LOCATION_DEBUG
-                    "${CMAKE_CURRENT_LIST_DIR}/lib/gtestd_maind.lib"
+                    "${CMAKE_CURRENT_LIST_DIR}/lib/gtest_maind.lib"
                 INTERFACE_INCLUDE_DIRECTORIES
                     "${CMAKE_CURRENT_LIST_DIR}/include/gtest"
         )
@@ -71,7 +71,7 @@ if(NOT TARGET GTest::Main)
                 IMPORTED_LOCATION
                     "${CMAKE_CURRENT_LIST_DIR}/lib/gtest_main.a"
                 IMPORTED_LOCATION_DEBUG
-                    "${CMAKE_CURRENT_LIST_DIR}/lib/gtestd_maind.a"
+                    "${CMAKE_CURRENT_LIST_DIR}/lib/gtest_maind.a"
                 INTERFACE_INCLUDE_DIRECTORIES
                     "${CMAKE_CURRENT_LIST_DIR}/include/gtest"
         )
