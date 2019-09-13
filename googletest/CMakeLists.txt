@@ -329,3 +329,23 @@ if (gtest_build_tests)
   py_test(gtest_xml_output_unittest --no_stacktrace_support)
   py_test(googletest-json-output-unittest --no_stacktrace_support)
 endif()
+
+set_target_properties(
+  gtest
+  PROPERTIES
+    COMPILE_PDB_NAME
+      gtest${CMAKE_DEBUG_POSTFIX}
+
+    PREFIX
+      ""
+)
+
+set_target_properties(
+  gtest_main
+  PROPERTIES
+    COMPILE_PDB_NAME
+      gtest_main${CMAKE_DEBUG_POSTFIX}
+
+    PREFIX
+      ""
+)
