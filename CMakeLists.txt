@@ -11,7 +11,6 @@ if (POLICY CMP0057)
   cmake_policy(SET CMP0057 NEW)
 endif (POLICY CMP0057)
 
-
 project(googletest-distribution)
 set(GOOGLETEST_VERSION 1.10.0)
 
@@ -26,6 +25,11 @@ else()
 endif()
 
 enable_testing()
+
+set(
+    REPOSITORY_OS
+    "windows"
+)
 
 include(
     "${PROJECT_SOURCE_DIR}/cmake/cnpm/NastyPackageManager.cmake"
