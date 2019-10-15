@@ -3,6 +3,11 @@
 
 cmake_minimum_required(VERSION 3.16)
 
+if (POLICY CMP0057)
+  cmake_policy(SET CMP0057 NEW)
+endif (POLICY CMP0057)
+
+
 project(googletest-distribution)
 set(GOOGLETEST_VERSION 1.17.0)
 
@@ -11,6 +16,33 @@ if(NOT CYGWIN AND NOT MSYS AND NOT ${CMAKE_SYSTEM_NAME} STREQUAL QNX)
 endif()
 
 enable_testing()
+
+include(
+    "${PROJECT_SOURCE_DIR}/cmake/cnpm/NastyPackageManager.cmake"
+)
+
+NPM_ADD_PACKAGE(
+	NAME
+		msvs
+	VERSION
+		2019
+	BUILD_NUMBER
+		0
+)
+
+NPM_ADD_PACKAGE(
+	NAME
+		WindowsSDK
+	VERSION
+		10.0.18362.0
+	BUILD_NUMBER
+		0
+)
+
+NPM_PREPARE_PACKAGES(
+    DEFAULT_REPOSITORY_URLS
+            "https://cnpm.rogii.com/${REPOSITORY_OS}/public"
+)
 
 include(CMakeDependentOption)
 include(GNUInstallDirs)
