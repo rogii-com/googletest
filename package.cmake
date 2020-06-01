@@ -77,3 +77,35 @@ if(NOT TARGET GTest::Main)
         )
     endif()
 endif()
+
+if(NOT TARGET GMock::GMock)
+    add_library(
+        GMock::GMock
+        STATIC
+        IMPORTED
+    )
+
+    if(MSVC)
+        set_target_properties(
+            GMock::GMock
+            PROPERTIES
+                IMPORTED_LOCATION
+                    "${CMAKE_CURRENT_LIST_DIR}/lib/gmock.lib"
+                IMPORTED_LOCATION_DEBUG
+                    "${CMAKE_CURRENT_LIST_DIR}/lib/gmockd.lib"
+                INTERFACE_INCLUDE_DIRECTORIES
+                    "${CMAKE_CURRENT_LIST_DIR}/include"
+        )
+    elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+        set_target_properties(
+            GTest::GTest
+            PROPERTIES
+                IMPORTED_LOCATION
+                    "${CMAKE_CURRENT_LIST_DIR}/lib/gmock.a"
+                IMPORTED_LOCATION_DEBUG
+                    "${CMAKE_CURRENT_LIST_DIR}/lib/gmockd.a"
+                INTERFACE_INCLUDE_DIRECTORIES
+                    "${CMAKE_CURRENT_LIST_DIR}/include"
+        )
+    endif()
+endif()
