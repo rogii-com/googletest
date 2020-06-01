@@ -55,7 +55,7 @@ NPM_ADD_PACKAGE(
 
 NPM_PREPARE_PACKAGES(
     DEFAULT_REPOSITORY_URLS
-            "https://cnpm.rogii.com/${REPOSITORY_OS}/public"
+            "$ENV{CNPM_URLS}"
 )
 
 include(CMakeDependentOption)
