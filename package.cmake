@@ -1,13 +1,13 @@
-if(NOT TARGET GTest::GTest)
+if(NOT TARGET google::test)
     add_library(
-        GTest::GTest
+        google::test
         STATIC
         IMPORTED
     )
 
     if(TARGET Threads::Threads)
         set_target_properties(
-            GTest::GTest
+            google::test
             PROPERTIES
             INTERFACE_LINK_LIBRARIES
                 Threads::Threads
@@ -16,7 +16,7 @@ if(NOT TARGET GTest::GTest)
 
     if(MSVC)
         set_target_properties(
-            GTest::GTest
+            google::test
             PROPERTIES
                 IMPORTED_LOCATION
                     "${CMAKE_CURRENT_LIST_DIR}/lib/gtest.lib"
@@ -27,7 +27,7 @@ if(NOT TARGET GTest::GTest)
         )
     elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
         set_target_properties(
-            GTest::GTest
+            google::test
             PROPERTIES
                 IMPORTED_LOCATION
                     "${CMAKE_CURRENT_LIST_DIR}/lib/gtest.a"
@@ -39,23 +39,23 @@ if(NOT TARGET GTest::GTest)
     endif()    
 endif()
 
-if(NOT TARGET GTest::Main)
+if(NOT TARGET google::test-main)
     add_library(
-        GTest::Main
+        google::test-main
         STATIC
         IMPORTED
     )
 
     set_target_properties(
-        GTest::Main
+        google::test-main
         PROPERTIES
         INTERFACE_LINK_LIBRARIES
-            GTest::GTest
+            google::test
         )
 
     if(MSVC)
         set_target_properties(
-            GTest::Main
+            google::test-main
             PROPERTIES
                 IMPORTED_LOCATION
                     "${CMAKE_CURRENT_LIST_DIR}/lib/gtest_main.lib"
@@ -66,7 +66,7 @@ if(NOT TARGET GTest::Main)
         )
     elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
         set_target_properties(
-            GTest::Main
+            google::test-main
             PROPERTIES
                 IMPORTED_LOCATION
                     "${CMAKE_CURRENT_LIST_DIR}/lib/gtest_main.a"
@@ -78,16 +78,16 @@ if(NOT TARGET GTest::Main)
     endif()
 endif()
 
-if(NOT TARGET GMock::GMock)
+if(NOT TARGET google::mock)
     add_library(
-        GMock::GMock
+        google::mock
         STATIC
         IMPORTED
     )
 
     if(MSVC)
         set_target_properties(
-            GMock::GMock
+            google::mock
             PROPERTIES
                 IMPORTED_LOCATION
                     "${CMAKE_CURRENT_LIST_DIR}/lib/gmock.lib"
@@ -98,7 +98,7 @@ if(NOT TARGET GMock::GMock)
         )
     elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
         set_target_properties(
-            GTest::GTest
+            google::mock
             PROPERTIES
                 IMPORTED_LOCATION
                     "${CMAKE_CURRENT_LIST_DIR}/lib/gmock.a"
