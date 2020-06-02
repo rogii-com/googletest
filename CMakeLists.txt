@@ -26,36 +26,42 @@ endif()
 
 enable_testing()
 
-set(
-    REPOSITORY_OS
-    "windows"
-)
-
 include(
     "${PROJECT_SOURCE_DIR}/cmake/cnpm/NastyPackageManager.cmake"
 )
 
-NPM_ADD_PACKAGE(
-	NAME
-		msvs
-	VERSION
-		2019
-	BUILD_NUMBER
-		1
-)
+if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+    NPM_ADD_PACKAGE(
+        NAME
+            msvs
+        VERSION
+            2019
+        BUILD_NUMBER
+            1
+    )
 
-NPM_ADD_PACKAGE(
-	NAME
-		WindowsSDK
-	VERSION
-		10.0.18362.0
-	BUILD_NUMBER
-		3
-)
+    NPM_ADD_PACKAGE(
+        NAME
+            WindowsSDK
+        VERSION
+            10.0.18362.0
+        BUILD_NUMBER
+            3
+    )
+elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+    NPM_ADD_PACKAGE(
+        NAME
+            gxx_runtime
+        VERSION
+            9.2.1
+        BUILD_NUMBER
+            0
+    )
+endif()
 
 NPM_PREPARE_PACKAGES(
     DEFAULT_REPOSITORY_URLS
-            "$ENV{CNPM_URLS}"
+    "$ENV{CNPM_URLS}"
 )
 
 include(CMakeDependentOption)
