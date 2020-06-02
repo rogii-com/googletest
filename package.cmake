@@ -101,9 +101,9 @@ if(NOT TARGET google::mock)
             google::mock
             PROPERTIES
                 IMPORTED_LOCATION
-                    "${CMAKE_CURRENT_LIST_DIR}/lib/gmock.a"
+                    "${CMAKE_CURRENT_LIST_DIR}/lib/libgmock.a"
                 IMPORTED_LOCATION_DEBUG
-                    "${CMAKE_CURRENT_LIST_DIR}/lib/gmockd.a"
+                    "${CMAKE_CURRENT_LIST_DIR}/lib/libgmockd.a"
                 INTERFACE_INCLUDE_DIRECTORIES
                     "${CMAKE_CURRENT_LIST_DIR}/include"
         )
