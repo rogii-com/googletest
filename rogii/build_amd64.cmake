@@ -1,3 +1,8 @@
+message(
+    STATUS
+    "ENV{ENV_INSTALL} = $ENV{ENV_INSTALL}"
+)
+
 if(NOT DEFINED ENV{ENV_INSTALL})
     message(
         FATAL_ERROR
