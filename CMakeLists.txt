@@ -1,7 +1,7 @@
 # Note: CMake support is community-based. The maintainers do not use CMake
 # internally.
 
-cmake_minimum_required(VERSION 2.8.12)
+cmake_minimum_required(VERSION 3.12.0)
 
 if (POLICY CMP0048)
   cmake_policy(SET CMP0048 NEW)
@@ -22,40 +22,14 @@ endif()
 
 enable_testing()
 
-include(
-    "${PROJECT_SOURCE_DIR}/cmake/cnpm/NastyPackageManager.cmake"
+set(
+    ROGII_FOLDER_PATH
+    "${CMAKE_CURRENT_LIST_DIR}/rogii"
 )
+include(${ROGII_FOLDER_PATH}/npm/Include.cmake)
+include(${ROGII_FOLDER_PATH}/environment.cmake)
 
-if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
-    NPM_ADD_PACKAGE(
-        NAME
-            msvs
-        VERSION
-            2019
-        BUILD_NUMBER
-            1
-    )
-
-    NPM_ADD_PACKAGE(
-        NAME
-            WindowsSDK
-        VERSION
-            10.0.18362.0
-        BUILD_NUMBER
-            3
-    )
-elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-    NPM_ADD_PACKAGE(
-        NAME
-            gxx_runtime
-        VERSION
-            9.2.1
-        BUILD_NUMBER
-            0
-    )
-endif()
-
-NPM_PREPARE_PACKAGES(
+CNPM_PREPARE_PACKAGES(
     DEFAULT_REPOSITORY_URLS
     "$ENV{CNPM_URLS}"
 )

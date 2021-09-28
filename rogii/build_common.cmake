@@ -51,7 +51,7 @@ else()
 endif()
 
 include(
-    "${CMAKE_CURRENT_LIST_DIR}/Version.cmake"
+    "${CMAKE_CURRENT_LIST_DIR}/version.cmake"
 )
 
 set(
@@ -61,7 +61,7 @@ set(
 
 set(
     PACKAGE_NAME
-    "googlemock-${VERSION}-${ARCH}-${BUILD}${TAG}"
+    "googletest-${VERSION}-${ARCH}-${BUILD}${TAG}"
 )
 
 set(
@@ -88,16 +88,9 @@ file(
     "${RELEASE_PATH}"
 )
 
-if(WIN32)
-    set(
-        GENERATOR
-        -G Ninja
-    )
-endif()
-
 execute_process(
     COMMAND
-        "${CMAKE_COMMAND}" ${GENERATOR} -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEBUG_POSTFIX=d -DBUILD_GTEST=ON -DBUILD_GMOCK=ON -DBUILD_SHARED_LIBS=OFF -Dgtest_force_shared_crt=ON -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX} ../..
+        "${CMAKE_COMMAND}" -G Ninja -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEBUG_POSTFIX=d -DBUILD_GTEST=ON -DBUILD_GMOCK=ON -DBUILD_SHARED_LIBS=OFF -Dgtest_force_shared_crt=ON -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX} ../..
     WORKING_DIRECTORY
         "${DEBUG_PATH}"
 )
@@ -110,7 +103,7 @@ execute_process(
 
 execute_process(
     COMMAND
-        "${CMAKE_COMMAND}" ${GENERATOR} -DCMAKE_BUILD_TYPE=RelWithDebInfo -DBUILD_GTEST=ON -DBUILD_GMOCK=ON -DBUILD_SHARED_LIBS=OFF  -Dgtest_force_shared_crt=ON -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX} ../..
+        "${CMAKE_COMMAND}" -G Ninja -DCMAKE_BUILD_TYPE=RelWithDebInfo -DBUILD_GTEST=ON -DBUILD_GMOCK=ON -DBUILD_SHARED_LIBS=OFF  -Dgtest_force_shared_crt=ON -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX} ../..
     WORKING_DIRECTORY
         "${RELEASE_PATH}"
 )
@@ -135,7 +128,7 @@ endif()
 
 file(
     COPY
-        "${CMAKE_CURRENT_LIST_DIR}/../package.cmake"
+        "${CMAKE_CURRENT_LIST_DIR}/package.cmake"
     DESTINATION
         "${ROOT}/${PACKAGE_NAME}"
 )
