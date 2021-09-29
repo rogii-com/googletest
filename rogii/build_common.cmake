@@ -121,6 +121,11 @@ if(WIN32)
             "${DEBUG_PATH}/bin/gtest_maind.pdb"
             "${RELEASE_PATH}/bin/gtest.pdb"
             "${RELEASE_PATH}/bin/gtest_main.pdb"
+
+            "${DEBUG_PATH}/bin/gmockd.pdb"
+            "${DEBUG_PATH}/bin/gmock_maind.pdb"
+            "${RELEASE_PATH}/bin/gmock.pdb"
+            "${RELEASE_PATH}/bin/gmock_main.pdb"
         DESTINATION
             "${ROOT}/${PACKAGE_NAME}/lib"
     )
