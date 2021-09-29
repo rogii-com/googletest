@@ -61,7 +61,7 @@ set(
 
 set(
     PACKAGE_NAME
-    "googletest-${VERSION}-${ARCH}-${BUILD}${TAG}"
+    "googletest-${ROGII_GOOGLETEST_VERSION}-${ARCH}-${BUILD}${TAG}"
 )
 
 set(
