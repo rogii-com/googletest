@@ -117,15 +117,15 @@ execute_process(
 if(WIN32)
     file(
         COPY
-            "${DEBUG_PATH}/bin/gtestd.pdb"
-            "${DEBUG_PATH}/bin/gtest_maind.pdb"
-            "${RELEASE_PATH}/bin/gtest.pdb"
-            "${RELEASE_PATH}/bin/gtest_main.pdb"
+            "${DEBUG_PATH}/lib/gtestd.pdb"
+            "${DEBUG_PATH}/lib/gtest_maind.pdb"
+            "${RELEASE_PATH}/lib/gtest.pdb"
+            "${RELEASE_PATH}/lib/gtest_main.pdb"
 
-            "${DEBUG_PATH}/bin/gmockd.pdb"
-            "${DEBUG_PATH}/bin/gmock_maind.pdb"
-            "${RELEASE_PATH}/bin/gmock.pdb"
-            "${RELEASE_PATH}/bin/gmock_main.pdb"
+            "${DEBUG_PATH}/lib/gmockd.pdb"
+            "${DEBUG_PATH}/lib/gmock_maind.pdb"
+            "${RELEASE_PATH}/lib/gmock.pdb"
+            "${RELEASE_PATH}/lib/gmock_main.pdb"
         DESTINATION
             "${ROOT}/${PACKAGE_NAME}/lib"
     )
