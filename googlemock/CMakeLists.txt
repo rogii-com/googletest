@@ -208,3 +208,23 @@ if (gmock_build_tests)
   cxx_executable(gmock_output_test_ test gmock)
   py_test(gmock_output_test)
 endif()
+
+set_target_properties(
+  gmock
+  PROPERTIES
+    COMPILE_PDB_NAME
+    gmock${CMAKE_DEBUG_POSTFIX}
+
+    PREFIX
+      ""
+)
+
+set_target_properties(
+  gmock_main
+  PROPERTIES
+    COMPILE_PDB_NAME
+    gmock_main${CMAKE_DEBUG_POSTFIX}
+
+    PREFIX
+      ""
+)

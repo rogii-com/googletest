@@ -3,6 +3,10 @@
 
 cmake_minimum_required(VERSION 3.16)
 
+if (POLICY CMP0057)
+  cmake_policy(SET CMP0057 NEW)
+endif (POLICY CMP0057)
+
 project(googletest-distribution)
 set(GOOGLETEST_VERSION 1.17.0)
 
@@ -11,6 +15,18 @@ if(NOT CYGWIN AND NOT MSYS AND NOT ${CMAKE_SYSTEM_NAME} STREQUAL QNX)
 endif()
 
 enable_testing()
+
+set(
+    ROGII_FOLDER_PATH
+    "${CMAKE_CURRENT_LIST_DIR}/rogii"
+)
+include(${ROGII_FOLDER_PATH}/npm/Include.cmake)
+include(${ROGII_FOLDER_PATH}/environment.cmake)
+
+CNPM_PREPARE_PACKAGES(
+    DEFAULT_REPOSITORY_URLS
+    "$ENV{CNPM_URLS}"
+)
 
 include(CMakeDependentOption)
 include(GNUInstallDirs)
